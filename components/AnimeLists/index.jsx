@@ -8,8 +8,9 @@ export function AnimeLists() {
   const [lists, setLists] = useState([]);
   const anime = async (e) => {
     e.preventDefault();
-    const year = document.search.year.value
-    const response = await fetch(`https://api.annict.com/v1/works?filter_season=${year}-spring&access_token=_csr_bHA2DnX69xOI49-uiRLpTE7eSdEh8St249bnJo`);
+    const year = document.search.year.value;
+    const season = document.search.season.value;
+    const response = await fetch(`https://api.annict.com/v1/works?filter_season=${year}-${season}&access_token=_csr_bHA2DnX69xOI49-uiRLpTE7eSdEh8St249bnJo`);
     const res = await response.json();
     setLists(res.works)
   }
@@ -21,6 +22,13 @@ export function AnimeLists() {
       <form name="search" onSubmit={anime}>
         <select name="year">
           {Years.map((year) => <option key={year}>{year}</option>)}
+        </select>
+        <select name="season">
+          <option value="spring">春シーズン</option>
+          <option value="summer">夏シーズン</option>
+          <option value="autumn">秋シーズン</option>
+          <option value="winter">冬シーズン</option>
+          <option value="all">年間全て</option>
         </select>
         <input type="submit" value="検索する"></input>
       </form>
