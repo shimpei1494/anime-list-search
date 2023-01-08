@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { AnimeArticle } from "../AnimeArticle";
-import {Years} from "../ConstantArray"
+import {nowYear,Years} from "../ConstantArray"
 
 export function AnimeLists() {
 
+  // デフォルトでnowYearの今のシーズンが入るようにしたい
   const [lists, setLists] = useState([]);
   const anime = async (e) => {
     e.preventDefault();
@@ -19,14 +20,14 @@ export function AnimeLists() {
     <div>
       <form name="search" onSubmit={anime}>
         <select name="year">
-          {Years.map((year) => <option>{year}</option>)}
+          {Years.map((year) => <option key={year}>{year}</option>)}
         </select>
         <input type="submit" value="検索する"></input>
       </form>
       <ul>
-        {lists.map((article) => {
+        {lists.map((oneAnime) => {
           return (
-            <AnimeArticle article={article} key={article.id}/>
+            <AnimeArticle oneAnime={oneAnime} key={oneAnime.id}/>
           );
         })}
       </ul>

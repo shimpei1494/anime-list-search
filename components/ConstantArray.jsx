@@ -1,8 +1,9 @@
 
-// Yearの配列
+// Yearに関する
 const yearStart = 2015
 const now = new Date();
-const nowYear = now.getFullYear();
+// その年は他で使うためにエクスポート
+export const nowYear = now.getFullYear();
 const yearArray = (a, z) => {
   const list = [];
   for (let i = a; i <= (z + 1); i++) {
@@ -10,4 +11,5 @@ const yearArray = (a, z) => {
   }
   return list;
 };
+// 現在の年+1までを配列としてエクスポート
 export const Years = yearArray(yearStart, nowYear)
