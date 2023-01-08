@@ -11,7 +11,7 @@ const theAnime = props.oneAnime;
         <p>{theAnime.title_kana}</p>
         <p>{theAnime.watchers_count}</p>
         {/* <Image src={theAnime.images.recommended_url} width={64} height={64}/> */}
-        <img src={theAnime.images.recommended_url}></img>
+        <img src={theAnime.images.recommended_url} width="30%" height="30%"></img>
       </div>
     </li>
   );
