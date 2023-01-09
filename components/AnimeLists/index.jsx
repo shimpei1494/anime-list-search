@@ -28,7 +28,7 @@ export function AnimeLists() {
           <option value="summer">夏シーズン</option>
           <option value="autumn">秋シーズン</option>
           <option value="winter">冬シーズン</option>
-          <option value="all">年間全て</option>
+          {/* <option value="all">年間全て</option> */}
         </select>
         <input type="submit" value="検索する"></input>
       </form>
