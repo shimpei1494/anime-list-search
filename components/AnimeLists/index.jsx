@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { AnimeArticle } from "../AnimeArticle";
-import {nowYear,Years} from "../ConstantArray"
+// import {nowYear,Years} from "../ConstantArray"
 
 export function AnimeLists() {
 
