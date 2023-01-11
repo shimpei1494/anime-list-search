@@ -2,7 +2,7 @@ import Image from "next/image";
 import style from "./AnimeArticle.module.css"
 
 export function AnimeArticle(props) {
-const theAnime = props.oneAnime;
+  const theAnime = props.oneAnime;
 
   return (
     <li>
@@ -10,8 +10,9 @@ const theAnime = props.oneAnime;
         <p>{theAnime.title}</p>
         <p>{theAnime.title_kana}</p>
         <p>{theAnime.watchers_count}</p>
-        {/* <Image src={theAnime.images.recommended_url} width={64} height={64}/> */}
-        <img src={theAnime.images.recommended_url} width="30%" height="30%"
+        {/* Imageコンポーネントを使用したいが、これを使用するとCORSのエラー出て、特定ドメインをしたいが、いろんなurlから画像を持ってきていると思われるのでどうしたらいいかという状況 */}
+        {/* <Image src={theAnime.images.recommended_url} alt="no image" width={64} height={64}/> */}
+        <img src={theAnime.images.recommended_url} alt="no image" width="30%" height="30%" onError={(e) => e.target.src = 'images/noimage-1024x898.png'}
         ></img>
       </div>
     </li>
