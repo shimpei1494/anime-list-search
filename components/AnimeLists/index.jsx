@@ -10,7 +10,7 @@ export function AnimeLists() {
     e.preventDefault();
     const year = document.search.year.value;
     const season = document.search.season.value;
-    const response = await fetch(`https://api.annict.com/v1/works?filter_season=${year}-${season}&per_page=50&access_token=${process.env.NEXT_PUBLIC_ACCESS_TOKEN}`);
+    const response = await fetch(`https://api.annict.com/v1/works?filter_season=${year}-${season}&per_page=50&sort_watchers_count=desc&access_token=${process.env.NEXT_PUBLIC_ACCESS_TOKEN}`);
     const res = await response.json();
     setLists(res.works)
   }
