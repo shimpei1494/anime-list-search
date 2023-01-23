@@ -4,7 +4,7 @@ export function Header() {
 
   return (
     <Box bg="teal.400">
-      <Heading>アニメリスト検索アプリ</Heading>
+      <Heading color="white">アニメリスト検索アプリ</Heading>
     </Box>
   );
 }
