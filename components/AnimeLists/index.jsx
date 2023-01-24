@@ -21,21 +21,21 @@ export function AnimeLists() {
 
 
   return (
-    <Box m={15}>
+    <Box m={10}>
       <Center>
         <form name="search">
           <HStack>
-            <Select name="year">
+            <Select w={150} name="year">
               {Years.map((year) => <option key={year}>{year}</option>)}
             </Select>
-            <Select name="season">
+            <Select w={150} name="season">
               <option value="spring">春シーズン</option>
               <option value="summer">夏シーズン</option>
               <option value="autumn">秋シーズン</option>
               <option value="winter">冬シーズン</option>
               {/* <option value="all">年間全て</option> */}
             </Select>
-            <Button w={"80px"} onClick={handleSearch}>検索する</Button>
+            <Button w={100} onClick={handleSearch}>検索する</Button>
           </HStack>
         </form>
       </Center>
