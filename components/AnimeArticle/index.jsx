@@ -5,7 +5,7 @@ export function AnimeArticle(props) {
   const theAnime = props.oneAnime;
 
   return (
-    <Box bgColor="teal.400" p="2" m="2">
+    <Box bgColor="teal.300" p="2" m="2">
       <Heading size='lg'>{theAnime.title}</Heading>
       <Text>wacth数：{theAnime.watchers_count}</Text>
       <Link href={theAnime.official_site_url} target='_blank'>公式URL</Link>

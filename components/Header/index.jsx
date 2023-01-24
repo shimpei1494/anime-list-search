@@ -7,7 +7,7 @@ export function Header() {
   const { colorMode, toggleColorMode } = useColorMode()
 
   return (
-    <Center h={100} bg="teal.400">
+    <Center h={100} bg="teal.300">
       <Heading>アニメリスト検索アプリ</Heading>
       <IconButton
         // _focus={{_focus: "none"}} //周りの青いアウトラインが気になる場合に消す方法
