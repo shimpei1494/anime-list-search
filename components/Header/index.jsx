@@ -8,7 +8,7 @@ export function Header() {
 
   return (
     <Center h={100} bg="teal.400">
-      <Heading color="white">アニメリスト検索アプリ</Heading>
+      <Heading>アニメリスト検索アプリ</Heading>
       <IconButton
         // _focus={{_focus: "none"}} //周りの青いアウトラインが気になる場合に消す方法
         aria-label="DarkMode Switch"

@@ -1,6 +1,5 @@
 import { Box, Heading, Link, Text } from "@chakra-ui/layout";
-import Image from "next/image";
-import style from "./AnimeArticle.module.css"
+
 
 export function AnimeArticle(props) {
   const theAnime = props.oneAnime;

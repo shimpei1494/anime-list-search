@@ -1,5 +1,5 @@
 import { Button } from "@chakra-ui/button";
-import { Box, Center, HStack, VStack } from "@chakra-ui/layout";
+import { Box, Center, HStack } from "@chakra-ui/layout";
 import { Select } from "@chakra-ui/select";
 import { useState } from "react";
 import { AnimeArticle } from "../AnimeArticle";
@@ -21,7 +21,7 @@ export function AnimeLists() {
 
 
   return (
-    <Box m={10}>
+    <Box>
       <Center>
         <form name="search">
           <HStack>
