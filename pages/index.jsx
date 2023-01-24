@@ -3,8 +3,9 @@ import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from '../styles/Home.module.css'
 import { AnimeLists } from '../components/AnimeLists'
-import { Container, Heading } from '@chakra-ui/layout'
+import { Center, Container, Heading, Link, Text } from '@chakra-ui/layout'
 import { Header } from '../components/Header'
+import { Description } from '../components/Description'
 
 export default function Home() {
   return (
@@ -17,7 +18,10 @@ export default function Home() {
       </Head>
       <main >
         <Header />
-        <Container>
+        <Center mt={5}>
+          <Description />
+        </Center>
+        <Container mt={5}>
           <AnimeLists />
         </Container>
       </main>
