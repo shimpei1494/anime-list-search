@@ -35,7 +35,7 @@ export function AnimeLists() {
               <option value="winter">冬シーズン</option>
               {/* <option value="all">年間全て</option> */}
             </Select>
-            <Button w={100} onClick={handleSearch}>検索する</Button>
+            <Button w={100} border="1px" borderColor="gray.200" onClick={handleSearch}>検索する</Button>
           </HStack>
         </form>
       </Center>
