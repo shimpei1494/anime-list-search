@@ -1,9 +1,6 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from '../styles/Home.module.css'
 import { AnimeLists } from '../components/AnimeLists'
-import { Center, Container, Heading, Link, Text } from '@chakra-ui/layout'
+import { Center, Container} from '@chakra-ui/layout'
 import { Header } from '../components/Header'
 import { Description } from '../components/Description'
 
