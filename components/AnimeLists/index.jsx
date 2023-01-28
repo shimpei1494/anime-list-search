@@ -3,37 +3,38 @@ import { Box, Center, HStack } from "@chakra-ui/layout";
 import { Select } from "@chakra-ui/select";
 import { useState } from "react";
 import { AnimeArticle } from "../AnimeArticle";
-import {nowYear,Years} from "../ConstantArray"
+import {Years, nowSeasonNum, seasonArray} from "../ConstantArray"
 
 export function AnimeLists() {
-
-  // デフォルトでnowYearの今のシーズンが入るようにしたい
   const [lists, setLists] = useState([]);
+  const [year, setYear] = useState(Years.nowYear);
+  // 初期値にはシーズンのvalueが入る("winter"等)
+  const [season, setSeason] = useState(seasonArray[nowSeasonNum][0]);
+
+  const handleYear = (e) => {
+    setYear(e.target.value);
+  };
+
+  const handleSeason = (e) => {
+    setSeason(e.target.value);
+  };
+
   const handleSearch = async () => {
-    // e.preventDefault();
-    const year = document.search.year.value;
-    const season = document.search.season.value;
     const response = await fetch(`https://api.annict.com/v1/works?filter_season=${year}-${season}&per_page=50&sort_watchers_count=desc&access_token=${process.env.NEXT_PUBLIC_ACCESS_TOKEN}`);
     const res = await response.json();
     setLists(res.works)
-  }
-
-
+  };
 
   return (
     <Box>
       <Center>
         <form name="search">
           <HStack>
-            <Select w={150} name="year">
-              {Years.map((year) => <option key={year}>{year}</option>)}
+            <Select w={150} value={year} onChange={e => handleYear(e)}>
+              {Years.yearOption.map((theYear) => <option key={theYear}>{theYear}</option>)}
             </Select>
-            <Select w={150} name="season">
-              <option value="spring">春シーズン</option>
-              <option value="summer">夏シーズン</option>
-              <option value="autumn">秋シーズン</option>
-              <option value="winter">冬シーズン</option>
-              {/* <option value="all">年間全て</option> */}
+            <Select w={150} value={season} onChange={e => handleSeason(e)}>
+              {seasonArray.map((theSeason) => <option key={theSeason[0]} value={theSeason[0]}>{theSeason[1]}</option>)}
             </Select>
             <Button w={100} border="1px" borderColor="gray.200" onClick={handleSearch}>検索する</Button>
           </HStack>
