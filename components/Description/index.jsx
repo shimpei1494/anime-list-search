@@ -1,6 +1,6 @@
 import { Button } from "@chakra-ui/button";
 import { useDisclosure } from "@chakra-ui/hooks";
-import { Box, Link, Text } from "@chakra-ui/layout";
+import { Box, Link, ListItem, Text, UnorderedList } from "@chakra-ui/layout";
 import { Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay } from "@chakra-ui/modal";
 
 export function Description() {
@@ -17,9 +17,16 @@ export function Description() {
         <ModalHeader textDecoration="underline">アニメリストの表示基準</ModalHeader>
         <ModalCloseButton />
         <ModalBody pb={10}>
-          <p>watch数 ＝ annictで「見てる/見たい/見た」に登録している人の数。</p>
-          <p>人気順をwatch数で判断し、降順で表示しています。</p>
-          <p>1ページ20作品表示されています。</p>
+          <Text>watch数 ＝ annictで「見てる/見たい/見た」に登録している人の数</Text>
+          <Text>人気順をwatch数で判断し、降順で表示します</Text>
+          <br/>
+          <Text>デフォルトでは現在の年、シーズンが選択されています</Text>
+          <UnorderedList>
+            <ListItem>冬シーズン＝1~3月</ListItem>
+            <ListItem>春シーズン＝4~6月</ListItem>
+            <ListItem>夏シーズン＝7~9月</ListItem>
+            <ListItem>秋シーズン＝10~12月</ListItem>
+          </UnorderedList>
         </ModalBody>
       </ModalContent>
     </Modal>
