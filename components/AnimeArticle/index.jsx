@@ -3,6 +3,7 @@ import { useDisclosure } from "@chakra-ui/hooks";
 import { Image } from "@chakra-ui/image";
 import { Box, Heading, HStack, Link, ListItem, Text, UnorderedList, VStack } from "@chakra-ui/layout";
 import { Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay } from "@chakra-ui/modal";
+import { Tag } from "@chakra-ui/tag";
 
 
 export function AnimeArticle(props) {
@@ -11,12 +12,13 @@ export function AnimeArticle(props) {
 
   return (
     <Box bgColor="teal.300" p={2} my={8}>
+      {theAnime.no_episodes ? <Tag mb={2} variant='solid' colorScheme='teal'>映画</Tag> : ""}
       <Heading size='lg'>{theAnime.title}</Heading>
       <HStack py={5}>
         <VStack>
           <UnorderedList>
             <ListItem>wacth数：{theAnime.watchers_count}</ListItem>
-            <ListItem><Link href={theAnime.official_site_url} target='_blank'>公式ページ</Link></ListItem>
+            <ListItem><Link hre={theAnime.official_site_url} target='_blank'>公式ページ</Link></ListItem>
             <ListItem><Link href={theAnime.wikipedia_url} target='_blank'>Wikipedia</Link></ListItem>
           </UnorderedList>
           <Button onClick={onOpen} border="1px">詳細</Button>
