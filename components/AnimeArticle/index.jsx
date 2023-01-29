@@ -18,7 +18,7 @@ export function AnimeArticle(props) {
         <VStack>
           <UnorderedList>
             <ListItem>wacth数：{theAnime.watchers_count}</ListItem>
-            <ListItem><Link hre={theAnime.official_site_url} target='_blank'>公式ページ</Link></ListItem>
+            <ListItem><Link href={theAnime.official_site_url} target='_blank'>公式ページ</Link></ListItem>
             <ListItem><Link href={theAnime.wikipedia_url} target='_blank'>Wikipedia</Link></ListItem>
           </UnorderedList>
           <Button onClick={onOpen} border="1px">詳細</Button>
