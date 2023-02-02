@@ -4,11 +4,25 @@ import { Image } from "@chakra-ui/image";
 import { Box, Heading, HStack, Link, ListItem, Text, UnorderedList, VStack } from "@chakra-ui/layout";
 import { Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay } from "@chakra-ui/modal";
 import { Tag } from "@chakra-ui/tag";
+// import xml2json from "xml-js";
 
 
 export function AnimeArticle(props) {
   const theAnime = props.oneAnime;
   const { isOpen, onOpen, onClose } = useDisclosure()
+
+  const searchShobocal = async (tid) => {
+    // ↓後でdevとproductionでドメインを場合分けできるようにする
+    const response = await fetch("http://localhost:3000/api/db.php?Command=TitleLookup&TID=6556");
+    // const responseJson = xml2json(response, { compact: true, spaces: 2 });
+    // const res = await response.json();
+    const data = await response.text();
+    // const comment = data.match(/<Comment>.<\/Comment>/)
+    // const comment = data.match(/キャスト/)
+    console.log(comment);
+    
+    // console.log(response);
+  };
 
   return (
     <Box bgColor="teal.300" p={2} my={8}>
@@ -21,7 +35,7 @@ export function AnimeArticle(props) {
             <ListItem><Link href={theAnime.official_site_url} target='_blank'>公式ページ</Link></ListItem>
             <ListItem><Link href={theAnime.wikipedia_url} target='_blank'>Wikipedia</Link></ListItem>
           </UnorderedList>
-          <Button onClick={onOpen} border="1px">詳細</Button>
+          <Button onClick={() => {searchShobocal(theAnime.syobocal_tid); onOpen();}} border="1px">詳細</Button>
         </VStack>
         <Image src={theAnime.images.facebook.og_image_url} alt="アニメの画像" width={"70%"} height={"70%"} onError={(e) => e.target.src = 'images/no_image_yoko.jpg'}
         ></Image>
