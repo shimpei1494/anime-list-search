@@ -18,7 +18,7 @@ export default function Home() {
         <title>アニメリスト検索アプリ</title>
         <meta name="description" content="アニメを検索することができます" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        {/* <link rel="icon" href="/favicon.ico" /> */}
+        <link rel="icon" href="/images/anime_fabicon.jpeg" />
       </Head>
       <main >
         <Header />
