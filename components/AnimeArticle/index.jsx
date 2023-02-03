@@ -14,14 +14,17 @@ export function AnimeArticle(props) {
   const searchShobocal = async (tid) => {
     // ↓後でdevとproductionでドメインを場合分けできるようにする
     const response = await fetch("http://localhost:3000/api/db.php?Command=TitleLookup&TID=6556");
-    // const responseJson = xml2json(response, { compact: true, spaces: 2 });
-    // const res = await response.json();
-    const data = await response.text();
-    // const comment = data.match(/<Comment>.<\/Comment>/)
+    const dataText = await response.text();
     // const comment = data.match(/キャスト/)
-    console.log(comment);
-    
-    // console.log(response);
+
+    const convert = require('xml-js');
+    const dataJsonText = convert.xml2json(dataText, {compact: true, spaces: 4});
+    const dataJson = JSON.parse(dataJsonText)
+    const dataComment = dataJson.TitleLookupResponse.TitleItems.TitleItem.Comment._text;
+    const cast = dataComment.match(/^\*キャスト[\S]+/m);
+    // const cast = dataComment.match(/\S+/);
+    // nullだとエラーになるけど、配列が返ればcast[0]で中身取り出せる
+    console.log(cast);
   };
 
   return (
