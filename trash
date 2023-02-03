@@ -1,0 +1,67 @@
+{
+    "_declaration": {
+        "_attributes": {
+            "version": "1.0",
+            "encoding": "UTF-8"
+        }
+    },
+    "TitleLookupResponse": {
+        "Result": {
+            "Code": {
+                "_text": "200"
+            },
+            "Message": {}
+        },
+        "TitleItems": {
+            "TitleItem": {
+                "_attributes": {
+                    "id": "6556"
+                },
+                "TID": {
+                    "_text": "6556"
+                },
+                "LastUpdate": {
+                    "_text": "2023-02-03 00:27:46"
+                },
+                "Title": {
+                    "_text": "お兄ちゃんはおしまい！"
+                },
+                "ShortTitle": {},
+                "TitleYomi": {
+                    "_text": "おにいちゃんはおしまい"
+                },
+                "TitleEN": {},
+                "Comment": {
+                    "_text": "*リンク\r\n-[[公式 https://onimai.jp/]]\r\n-[[Twitter https://twitter.com/onimai_anime]]\r\n-[[YouTube(TOHO animation) https://www.youtube.com/@TOHOanimation]]\r\n\r\n*メモ\r\n**Twitter・YouTube\r\n-毎週月曜ABEMA配信版に沿ったオーディオコメンタリーを配信\r\n\r\n*スタッフ\r\n:原作:ねことうふ\r\n:掲載誌:月刊ComicRex(一迅社)\r\n:監督:藤井慎吾\r\n:シリーズ構成:横手美智子\r\n:キャラクターデザイン:今村亮\r\n:美術監督:小林雅代\r\n:色彩設計:土居真紀子\r\n:メインアニメーター:みとん、松隈勇樹、内山玄基、Kay Yu\r\n:撮影監督:伏原あかね\r\n:編集:岡祐司\r\n:音響監督:吉田光平\r\n:音響効果:長谷川卓也\r\n:音響制作:ビットグルーヴプロモーション\r\n:音楽:阿知波大輔、桶狭間ありさ\r\n:音楽制作:東宝ミュージック\r\n:プロデュース:EGG FIRM\r\n:制作:スタジオバインド\r\n:製作:「おにまい」製作委員会(東宝、博報堂DYミュージック＆ピクチャーズ、一迅社、AT-X、BS11、ぴあ、ポニーキャニオン、ムービック、TOKYO MX、ビットグルーヴプロモーション、EGG FIRM)\r\n\r\n*オープニングテーマ「アイデン貞貞メルトダウン」\r\n:作詞・作曲・編曲:やしきん\r\n:歌:えなこ feat.P丸様。\r\n\r\n*エンディングテーマ「ひめごと＊クライシスターズ」\r\n:作詞・作曲・編曲:おぐらあすか\r\n:歌:ONIMAI SISTERES(高野麻里佳、石原夏織、金元寿子、津田美波)\r\n\r\n*キャスト\r\n:緒山まひろ:高野麻里佳\r\n:緒山みはり:石原夏織\r\n:穂月かえで:金元寿子\r\n:穂月もみじ:津田美波\r\n:桜花あさひ:優木かな\r\n:室崎みよ:日岡なつみ\r\n\r\n*次回予告イラスト\r\n:#1:松尾祐輔\r\n:#2:米山舞\r\n:#3:Kay Yu\r\n:#4:中村豊\r\n:#5:石田可奈"
+                },
+                "Cat": {
+                    "_text": "1"
+                },
+                "TitleFlag": {
+                    "_text": "0"
+                },
+                "FirstYear": {
+                    "_text": "2023"
+                },
+                "FirstMonth": {
+                    "_text": "1"
+                },
+                "FirstEndYear": {},
+                "FirstEndMonth": {},
+                "FirstCh": {
+                    "_text": "AT-X"
+                },
+                "Keywords": {},
+                "UserPoint": {
+                    "_text": "217"
+                },
+                "UserPointRank": {
+                    "_text": "3"
+                },
+                "SubTitles": {
+                    "_text": "*01*まひろとイケないカラダ\r\n*02*まひろと女の子の日\r\n*03*まひろと未知との遭遇\r\n*04*まひろとあたらしい友達\r\n*05*まひろと補導とお誘いと\r\n*06*まひろと二度目の中学生"
+                }
+            }
+        }
+    }
+}
