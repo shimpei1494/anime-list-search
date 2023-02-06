@@ -21,10 +21,10 @@ export function AnimeArticle(props) {
     const dataJsonText = convert.xml2json(dataText, {compact: true, spaces: 4});
     const dataJson = JSON.parse(dataJsonText)
     const dataComment = dataJson.TitleLookupResponse.TitleItems.TitleItem.Comment._text;
-    const cast = dataComment.match(/^\*キャスト[\S]+/m);
-    // const cast = dataComment.match(/\S+/);
-    // nullだとエラーになるけど、配列が返ればcast[0]で中身取り出せる
-    console.log(cast);
+    // 「*キャスト」で始まり、「*」で終わる部分を取り出す
+    const cast = dataComment.match(/\*キャスト[\s\S]*\*/);
+    const castList = cast[0].replace(/\*キャスト/,"");
+    console.log(castList);
   };
 
   return (
