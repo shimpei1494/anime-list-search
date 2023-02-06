@@ -26,7 +26,7 @@ export function AnimeArticle(props) {
     // 不要な部分を取り除く
     const castList = cast[0].replace(/\*キャスト\r\n/,"").replace(/\r\n\*/,"");
     // キャラ：声優の形で表現できるよう先頭の：と行の末尾の\r\nでmatchするもので配列を作る
-    
+    // const castDisplay = castList.match(/(:.*\r\n)/);→先頭しか取得してくれない
     console.log(castList);
   };
 
