@@ -13,7 +13,8 @@ export function AnimeArticle(props) {
 
   const searchShobocal = async (tid) => {
     // ↓後でdevとproductionでドメインを場合分けできるようにする
-    const response = await fetch("http://localhost:3000/api/db.php?Command=TitleLookup&TID=6556");
+    const domain = process.env.NODE_ENV === "production" ? "https://anime-list-search-nine.vercel.app/api" : "http://localhost:3000/api";
+    const response = await fetch(`${domain}/db.php?Command=TitleLookup&TID=6556`);
     const dataText = await response.text();
     // const comment = data.match(/キャスト/)
 
@@ -22,9 +23,9 @@ export function AnimeArticle(props) {
     const dataJson = JSON.parse(dataJsonText)
     const dataComment = dataJson.TitleLookupResponse.TitleItems.TitleItem.Comment._text;
     // 「*キャスト」で始まり、「*」で終わる部分を取り出す
-    const cast = dataComment.match(/\*キャスト[\s\S]*\*/);
+    const dataCast = dataComment.match(/\*キャスト[\s\S]*\*/);
     // 不要な部分を取り除く
-    const castList = cast[0].replace(/\*キャスト\r\n/,"").replace(/\r\n\*/,"");
+    const castList = dataCast[0].replace(/\*キャスト\r\n/,"").replace(/\r\n\*/,"");
     // キャラ：声優の形で表現できるよう先頭の：と行の末尾の\r\nでmatchするもので配列を作る
     // const castDisplay = castList.match(/(:.*\r\n)/);→先頭しか取得してくれない
     console.log(castList);
