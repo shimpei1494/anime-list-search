@@ -23,7 +23,10 @@ export function AnimeArticle(props) {
     const dataComment = dataJson.TitleLookupResponse.TitleItems.TitleItem.Comment._text;
     // 「*キャスト」で始まり、「*」で終わる部分を取り出す
     const cast = dataComment.match(/\*キャスト[\s\S]*\*/);
+    // 不要な部分を取り除く
     const castList = cast[0].replace(/\*キャスト\r\n/,"").replace(/\r\n\*/,"");
+    // キャラ：声優の形で表現できるよう先頭の：と行の末尾の\r\nでmatchするもので配列を作る
+    
     console.log(castList);
   };
 
