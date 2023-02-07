@@ -26,7 +26,7 @@ export function Description() {
             <ListItem>夏シーズン＝7~9月</ListItem>
             <ListItem>秋シーズン＝10~12月</ListItem>
           </UnorderedList>
-          <Heading textDecoration="underline" size='lg' p={3}>詳細について。</Heading>
+          <Heading textDecoration="underline" size='lg' p={3}>詳細について</Heading>
           <Text>詳細ではキャストの情報も閲覧することができます</Text>
         </ModalBody>
       </ModalContent>
