@@ -4,31 +4,43 @@ import { Image } from "@chakra-ui/image";
 import { Box, Heading, HStack, Link, ListItem, Text, UnorderedList, VStack } from "@chakra-ui/layout";
 import { Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay } from "@chakra-ui/modal";
 import { Tag } from "@chakra-ui/tag";
-// import xml2json from "xml-js";
+import { useState } from "react";
 
 
 export function AnimeArticle(props) {
   const theAnime = props.oneAnime;
+  const tid = props.syobocal_tid
   const { isOpen, onOpen, onClose } = useDisclosure()
+  const [castList, setCastList] = useState([]);
 
   const searchShobocal = async (tid) => {
-    // ↓後でdevとproductionでドメインを場合分けできるようにする
+    // devとproductionでドメインを場合分けする→しょぼいカレンダーのAPIをたたく
     const domain = process.env.NODE_ENV === "production" ? "https://anime-list-search-nine.vercel.app/api" : "http://localhost:3000/api";
-    const response = await fetch(`${domain}/db.php?Command=TitleLookup&TID=6556`);
+    const response = await fetch(`${domain}/db.php?Command=TitleLookup&TID=${tid}`);
     const dataText = await response.text();
-    // const comment = data.match(/キャスト/)
 
+    // xmlで受け取ったテキストデータをjsonテキストに変換→コメントデータ部分のテキストを取り出す
     const convert = require('xml-js');
     const dataJsonText = convert.xml2json(dataText, {compact: true, spaces: 4});
     const dataJson = JSON.parse(dataJsonText)
+   if (!dataJson) {
+    setCastList(["キャスト情報が見つかりません"]);
+   };
     const dataComment = dataJson.TitleLookupResponse.TitleItems.TitleItem.Comment._text;
-    // 「*キャスト」で始まり、「*」で終わる部分を取り出す
-    const dataCast = dataComment.match(/\*キャスト[\s\S]*\*/);
+    // キャスト情報の抜き出し（キャスト情報の後にテキストがある場合とない場合の２パターンがある）
+    let dataCast = []
+    if (dataComment.match(/\*キャスト[\s\S]*\*/)) {
+      dataCast = dataComment.match(/\*キャスト[\s\S]*\*/);
+    } else {
+      dataCast = dataComment.match(/\*キャスト[\s\S]*/);
+    } 
+    if (!dataCast | dataCast === []){
+      return setCastList(["キャスト情報が見つかりません"]);
+    }
     // 不要な部分を取り除く
-    const castList = dataCast[0].replace(/\*キャスト\r\n/,"").replace(/\r\n\*/,"");
-    // キャラ：声優の形で表現できるよう先頭の：と行の末尾の\r\nでmatchするもので配列を作る
-    // const castDisplay = castList.match(/(:.*\r\n)/);→先頭しか取得してくれない
-    console.log(castList);
+    const castText = dataCast[0].replace(/\*キャスト\r\n/,"").replace(/\r\n\*/,"")
+    // 改行を区切りとして配列に変換する
+    setCastList(castText.split(/\r\n/));
   };
 
   return (
@@ -51,20 +63,20 @@ export function AnimeArticle(props) {
       <Modal isOpen={isOpen} onClose={onClose} size="3xl">
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>{theAnime.title}</ModalHeader>
+          <Heading size='xl' p={3}>{theAnime.title}</Heading>
           <ModalCloseButton />
           <ModalBody>
             <Image src={theAnime.images.facebook.og_image_url} alt="アニメの画像" width="100%" onError={(e) => e.target.style.display="none"}
             ></Image>
-            <Heading>あらすじ</Heading>
-            <p>Hello</p>
-            <p>Hello</p>
-            <p>Hello</p>
-            <Heading>キャスト</Heading>
-            <p>Hello</p>
-            <p>Hello</p>
-            <p>Hello</p>
-            <p>Hello</p>
+            <Heading size='md' my={3}>キャスト(:キャラ名:声優名)</Heading>
+            <UnorderedList>
+              {castList.map((oneCast) => {
+                // キャスト情報があればキャストごとにリストを表示
+                return (
+                  <ListItem key={oneCast}>{oneCast}</ListItem>
+                );
+              })}
+            </UnorderedList>
           </ModalBody>
         </ModalContent>
       </Modal>
