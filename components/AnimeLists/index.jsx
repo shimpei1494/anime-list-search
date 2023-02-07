@@ -30,7 +30,7 @@ export function AnimeLists() {
       <Center>
         <form name="search">
           <HStack>
-            <Select w={150} value={year} onChange={e => handleYear(e)}>
+            <Select w={100} value={year} onChange={e => handleYear(e)}>
               {Years.yearOption.map((theYear) => <option key={theYear}>{theYear}</option>)}
             </Select>
             <Select w={150} value={season} onChange={e => handleSeason(e)}>
