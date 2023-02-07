@@ -2,7 +2,7 @@ import { Button } from "@chakra-ui/button";
 import { useDisclosure } from "@chakra-ui/hooks";
 import { Image } from "@chakra-ui/image";
 import { Box, Heading, HStack, Link, ListItem, UnorderedList, VStack } from "@chakra-ui/layout";
-import { Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalOverlay } from "@chakra-ui/modal";
+import { Modal, ModalBody, ModalCloseButton, ModalContent, ModalOverlay } from "@chakra-ui/modal";
 import { Tag } from "@chakra-ui/tag";
 import { useState } from "react";
 
@@ -68,6 +68,10 @@ export function AnimeArticle(props) {
           <ModalBody>
             <Image src={theAnime.images.facebook.og_image_url} alt="アニメの画像" width="100%" onError={(e) => e.target.style.display="none"}
             ></Image>
+            <HStack my={3}>
+              <Link href={theAnime.official_site_url} target='_blank'><Button>公式ページ</Button></Link>
+              <Link href={theAnime.wikipedia_url} target='_blank'><Button>Wiki</Button></Link>
+            </HStack>
             <Heading size='md' my={3}>キャスト(:キャラ名:声優名)</Heading>
             <UnorderedList>
               {castList.map((oneCast) => {
