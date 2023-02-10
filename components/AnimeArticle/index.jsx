@@ -36,7 +36,11 @@ export function AnimeArticle(props) {
       // 不要な部分を取り除く
       const castText = dataCast[0].replace(/\*キャスト\r\n/,"").replace(/\r\n\*/,"")
       // 改行を区切りとして配列に変換する
-      setCastList(castText.split(/\r\n/));
+      const castArray = castText.split(/\r\n/);
+      // 配列の空要素を削除
+      const castDisplayData = castArray.filter(function(s){return s !== "";});
+      // キャスト情報をuseStateで変更
+      setCastList(castDisplayData);
     } catch {
       setCastList(["キャスト情報が見つかりません"]);
     }
