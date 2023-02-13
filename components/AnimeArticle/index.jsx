@@ -1,5 +1,6 @@
 import { Button } from "@chakra-ui/button";
 import { useDisclosure } from "@chakra-ui/hooks";
+import { LinkIcon } from "@chakra-ui/icons";
 import { Image } from "@chakra-ui/image";
 import { Box, Heading, HStack, Link, ListItem, UnorderedList, VStack } from "@chakra-ui/layout";
 import { Modal, ModalBody, ModalCloseButton, ModalContent, ModalOverlay } from "@chakra-ui/modal";
@@ -20,7 +21,6 @@ export function AnimeArticle(props) {
       const domain = process.env.NODE_ENV === "production" ? "https://anime-list-search-nine.vercel.app/api" : "http://localhost:3000/api";
       const response = await fetch(`${domain}/db.php?Command=TitleLookup&TID=${tid}`);
       const dataText = await response.text();
-
       // xmlで受け取ったテキストデータをjsonテキストに変換→コメントデータ部分のテキストを取り出す
       const convert = require('xml-js');
       const dataJsonText = convert.xml2json(dataText, {compact: true, spaces: 4});
@@ -55,8 +55,8 @@ export function AnimeArticle(props) {
         <VStack>
           <UnorderedList>
             <ListItem>wacth数：{theAnime.watchers_count}</ListItem>
-            <ListItem><Link href={theAnime.official_site_url} target='_blank'>公式HP</Link></ListItem>
-            <ListItem><Link href={theAnime.wikipedia_url} target='_blank'>Wikipedia</Link></ListItem>
+            <ListItem><Link href={theAnime.official_site_url} target='_blank'>公式HP<LinkIcon boxSize={3} ml={1} /></Link></ListItem>
+            <ListItem><Link href={theAnime.wikipedia_url} target='_blank'>Wikipedia<LinkIcon boxSize={3} ml={1} /></Link></ListItem>
           </UnorderedList>
           <Button onClick={() => {searchShobocal(theAnime.syobocal_tid); onOpen();}} border="1px">詳細</Button>
         </VStack>
