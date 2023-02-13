@@ -16,7 +16,7 @@ export default function Home() {
     <>
       <Head>
         <title>アニメリスト検索アプリ</title>
-        <meta name="description" content="アニメを検索することができます" />
+        <meta name="description" content="クールごとにannictの人気順でアニメのリストを表示することができます。アニメのイメージ画像やキャスト情報を見ることができ、気になったアニメに関しては公式HPやWikipediaのページに移動し更に情報を取得できるようになっています。" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/images/anime_fabicon.jpeg" />
       </Head>
