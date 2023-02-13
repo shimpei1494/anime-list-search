@@ -7,7 +7,7 @@ export function Description() {
 
   return (
     <Box>
-      <Text>アニメを<Link href='https://annict.com/' target="_blank">annict</Link>の<Link onClick={onOpen}>人気順で表示</Link>します</Text>
+      <Text>アニメを<Link href='https://annict.com/' color='teal.300' target="_blank">annict</Link>の<Link color='teal.300' onClick={onOpen}>人気順で表示</Link>します</Text>
 
       {/* モーダル部分 */}
       <Modal isOpen={isOpen} onClose={onClose} size="xl">
